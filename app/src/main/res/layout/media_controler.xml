@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="#44000000"
+                android:gravity="center_vertical">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:id="@+id/controller_play"
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/media_control_play"/>
+        <TextView
+            android:layout_weight="2"
+            android:id="@+id/controller_start_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imageView"
+            android:textColor="@android:color/primary_text_dark"
+            tools:text="00:00"/>
+
+        <SeekBar
+            android:layout_gravity="center_vertical"
+            android:layout_weight="10"
+            android:id="@+id/controller_seekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/controller_start_time"/>
+
+        <TextView
+            android:id="@+id/controller_end_time"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/controller_seekBar"
+            android:textColor="@android:color/primary_text_dark"
+            tools:text="00:00"/>
+    </LinearLayout>
+
+</RelativeLayout>
