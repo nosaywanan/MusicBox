@@ -6,12 +6,14 @@ import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
+import com.example.administrator.musicbox.Widget.MusicPlayer;
+
 /**
  * Created by Administrator on 2016-09-24.
  */
 
 public class PlayLocalMusicService extends Service implements MediaPlayer.OnPreparedListener {
-    MediaPlayer mMediaplay = new MediaPlayer();
+    MusicPlayer mMediaplay;
     String musicPath = "";
 
     @Nullable
@@ -46,10 +48,10 @@ public class PlayLocalMusicService extends Service implements MediaPlayer.OnPrep
 
     private void play(int position) {
         try {
-            mMediaplay.reset();
-            mMediaplay.setDataSource(musicPath);
+          //  mMediaplay.reset();
+            mMediaplay.setMusicPath(musicPath);
             mMediaplay.prepare();
-            mMediaplay.setOnPreparedListener(this);
+          //  mMediaplay.setOnPreparedListener(this);
         } catch (Exception e) {
 
         }

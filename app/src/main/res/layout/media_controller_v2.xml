@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#314047"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="40"
+        android:progressBackgroundTint="#EC4A61"
+        android:secondaryProgressTint="#C69F7C" />
+    <RelativeLayout
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <ImageView
+            android:id="@+id/ctr_head_img"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/protrait" />
+
+        <ImageView
+            android:id="@+id/ctr_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_media_play" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_toLeftOf="@+id/ctr_play"
+            android:layout_toRightOf="@+id/ctr_head_img"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/secondary_text_dark"
+                android:textSize="16dp"
+                android:text="暗号" />
+
+            <TextView
+                android:id="@+id/item_artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#A1A5A8"
+                android:textSize="10dp"
+                android:text="周杰伦" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#29363C"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_play"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="#ffffff"
+            android:elevation="0dp"
+            android:src="@android:drawable/ic_media_play"/>
+        <ImageView
+            android:layout_marginRight="36dp"
+            android:layout_centerVertical="true"
+            android:drawableTint="#ffffff"
+            android:layout_toLeftOf="@+id/btn_play"
+            android:src="@android:drawable/ic_media_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_marginLeft="36dp"
+            android:layout_centerVertical="true"
+            android:drawableTint="#ffffff"
+            android:layout_toRightOf="@+id/btn_play"
+            android:src="@android:drawable/ic_media_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>

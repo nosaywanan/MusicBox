@@ -4,9 +4,12 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -19,20 +22,30 @@ import java.io.IOException;
  * Created by Administrator on 2016-09-24.
  */
 
-public class MusicPlayer implements MediaPlayer.OnPreparedListener,SeekBar.OnSeekBarChangeListener {
-    private Context mContext;
+public class MusicPlayer extends RelativeLayout implements MediaPlayer.OnPreparedListener,SeekBar.OnSeekBarChangeListener {
     private MediaPlayer mMediaplayer;
-    public MusicPlayer(Context ctx) {
-        mContext=ctx;
-        mMediaplayer=new MediaPlayer();
+
+    public MusicPlayer(Context context) {
+        super(context);
+        init();
+    }
+    public MusicPlayer(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+    private void init(){
+        mMediaplayer = new MediaPlayer();
         initMediaPlayer();
     }
+
+
     private ImageView mPlayBtn;
     private SeekBar mSeekBar;
     private TextView mStartTimeTv;
     private TextView mEndTimeTv;
     private void initMediaPlayer() {
-        View mediaView= LayoutInflater.from(mContext).inflate(R.layout.media_controler,null);
+        View mediaView= LayoutInflater.from(getContext()).inflate(R.layout.media_controler,null);
+        addView(mediaView,new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
         mPlayBtn= (ImageView) mediaView.findViewById(R.id.controller_play);
         mSeekBar= (SeekBar) mediaView.findViewById(R.id.controller_seekBar);
         mStartTimeTv= (TextView) mediaView.findViewById(R.id.controller_start_time);
@@ -69,7 +82,24 @@ public class MusicPlayer implements MediaPlayer.OnPreparedListener,SeekBar.OnSee
     public void onStopTrackingTouch(SeekBar seekBar) {
 
     }
-
+    public boolean isPlaying(){
+        return mMediaplayer.isPlaying();
+    }
+    public  void  prepare() throws IOException {
+        mMediaplayer.prepare();
+    }
+    public void start(){
+        mMediaplayer.start();
+    }
+    public void pause(){
+        mMediaplayer.pause();
+    }
+    public void stop(){
+        mMediaplayer.stop();
+    }
+    public void release(){
+        mMediaplayer.release();
+    }
     class MusicThread extends Thread{
         @Override
         public void run() {

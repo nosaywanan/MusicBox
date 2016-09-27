@@ -21,43 +21,49 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements ILocalMusicView,MyRevAdapter.OnRevItemClickListener {
+public class MainActivity extends AppCompatActivity implements ILocalMusicView, MyRevAdapter.OnRevItemClickListener {
 
     @Bind(R.id.music_list)
     RecyclerView mMusicLisView;
     @Bind(R.id.progress)
     ProgressBar mProgress;
     LocalMusicPresenter mLocalMusicPresenter;
+//    @Bind(R.id.music_player)
+//    MusicPlayer musicPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-       // initView();
+        // initView();
         getMusic();
     }
 
     private void getMusic() {
-        mLocalMusicPresenter=new LocalMusicPresenter(this);
+        mLocalMusicPresenter = new LocalMusicPresenter(this);
         mLocalMusicPresenter.getLocalMp3s(this);
     }
 
-    private  MyRevAdapter mMusicAdapter;
-    private  List<Music> mMusicList;
+    private MyRevAdapter mMusicAdapter;
+    private List<Music> mMusicList;
+
     private void initView() {
         //mMusicList=new ArrayList<Music>();
-        mMusicAdapter=new MyRevAdapter(this,mMusicList);
+        mMusicAdapter = new MyRevAdapter(this, mMusicList);
         mMusicAdapter.setOnRevItemClickListener(this);
         mMusicLisView.setLayoutManager(new LinearLayoutManager(this));
         mMusicLisView.setAdapter(mMusicAdapter);
     }
-    public void  hidePorgressbar(){
+
+    public void hidePorgressbar() {
         mProgress.setVisibility(View.GONE);
     }
+
     @Override
     public void getMusicSuccess(List<Music> musics) {
         hidePorgressbar();
-        mMusicList=musics;
+        mMusicList = musics;
         initView();
     }
 
@@ -69,11 +75,13 @@ public class MainActivity extends AppCompatActivity implements ILocalMusicView,M
 
     @Override
     public void onClick(View view, int position) {
-        Log.e("播放音频url:",mMusicList.get(position).getUrl());
-        Intent intent=new Intent(MainActivity.this, PlayLocalMusicService.class);
+        Log.e("播放音频url:", mMusicList.get(position).getUrl());
+        Intent intent = new Intent(MainActivity.this, PlayLocalMusicService.class);
         intent.setAction("com.example.administrator.musicbox.Service.PlayLocalMusicService");
-        intent.putExtra("url",mMusicList.get(position).getUrl());
-        intent.putExtra("cmd",0);
-        startService(intent);
+        intent.putExtra("url", mMusicList.get(position).getUrl());
+        intent.putExtra("cmd", 0);
+        startActivity(new Intent(MainActivity.this,MusicPlayActivity.class));
+ //       startService(intent);
+        //musicPlayer.setMusicPath(mMusicList.get(position).getUrl());
     }
 }

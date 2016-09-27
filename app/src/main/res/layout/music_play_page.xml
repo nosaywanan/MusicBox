@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@drawable/play_page_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            app:backgroundTint="#29363c"
+            app:paddingEnd="8dp"
+            android:visibility="gone"
+            android:src="@android:drawable/ic_menu_agenda"
+            android:layout_height="wrap_content" />
+        <include
+            layout="@layout/music_play_page_middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+
+    <include
+        layout="@layout/music_play_page_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2" />
+</LinearLayout>

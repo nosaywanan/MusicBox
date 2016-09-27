@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#182125"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_weight="1"
+        android:text="暗号"
+        android:textSize="16dp"
+        android:textColor="@android:color/primary_text_dark"
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginRight="16dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/music_duration"
+            android:textColor="@android:color/tertiary_text_light"
+            android:text="03:15"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_toLeftOf="@+id/music_duration"
+            android:textColor="@android:color/tertiary_text_light"
+            android:text="周杰伦"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <ProgressBar
+        android:layout_marginTop="8dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="40"
+        android:progressBackgroundTint="#EC4A61"
+        android:secondaryProgressTint="#C69F7C" />
+</LinearLayout>
