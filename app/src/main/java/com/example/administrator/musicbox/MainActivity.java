@@ -2,11 +2,13 @@ package com.example.administrator.musicbox;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements ILocalMusicView, 
     @Bind(R.id.progress)
     ProgressBar mProgress;
     LocalMusicPresenter mLocalMusicPresenter;
+    @Bind(R.id.ctr_head_img)
+    ImageView ctrHeadImg;
 //    @Bind(R.id.music_player)
 //    MusicPlayer musicPlayer;
 
@@ -80,8 +84,9 @@ public class MainActivity extends AppCompatActivity implements ILocalMusicView, 
         intent.setAction("com.example.administrator.musicbox.Service.PlayLocalMusicService");
         intent.putExtra("url", mMusicList.get(position).getUrl());
         intent.putExtra("cmd", 0);
-        startActivity(new Intent(MainActivity.this,MusicPlayActivity.class));
- //       startService(intent);
+        ActivityOptionsCompat optionsCompat=ActivityOptionsCompat.makeSceneTransitionAnimation(this,ctrHeadImg,"headimg");
+        startActivity(new Intent(MainActivity.this, MusicPlayActivity.class),optionsCompat.toBundle());
+        //       startService(intent);
         //musicPlayer.setMusicPath(mMusicList.get(position).getUrl());
     }
 }

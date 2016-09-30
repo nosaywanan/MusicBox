@@ -12,6 +12,7 @@
         android:layout_weight="8">
 
         <ImageView
+            android:transitionName="headimg"
             android:scaleType="fitXY"
             android:src="@drawable/play_page_back"
             android:layout_width="match_parent"
